@@ -33,15 +33,25 @@ describe('About Applying What We Have Learnt', function() {
       }
     }
 
-    expect(productsICanEat.length).toBe(['Pizza Primavera']);
+    expect(productsICanEat.length).toBe(1);
   });
 
   it('given I\'m allergic to nuts and hate mushrooms, it should find a pizza I can eat (functional)', function () {
     var productsICanEat = [];
 
-    /* solve using filter() & all() / any() */
 
-    expect(productsICanEat.length).toBe(FILL_ME_IN);
+
+    /* solve using filter() & all() / any() */
+    var canEat = _.filter(products, function (items) {
+      for (var i = 0; i < products.length; i++) {
+        if (products[i].ingredients.indexOf('mushrooms') === -1 ) {
+          return items;
+        }
+      }
+    });
+    productsICanEat = canEat;
+
+    expect(productsICanEat.length).toBe(1);
   });
 
   /*********************************************************************************/
@@ -55,7 +65,7 @@ describe('About Applying What We Have Learnt', function() {
       }
     }
 
-    expect(sum).toBe(FILL_ME_IN);
+    expect(sum).toBe(233168);
   });
 
   it('should add all the natural numbers below 1000 that are multiples of 3 or 5 (functional)', function () {
@@ -74,7 +84,7 @@ describe('About Applying What We Have Learnt', function() {
       }
     }
 
-    expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
+    expect(ingredientCount['mushrooms']).toBe(2);
   });
 
   it('should count the ingredient occurrence (functional)', function () {
